@@ -1,9 +1,14 @@
-web:
-    build: .
-    command: python -u app.py
-    ports:
-        - "5000:5000"
-    links:
-        - db
-db:
-    image: mongo:latest
+version: '3'
+
+services:
+    web:
+        build: .
+        command: python -u app.py
+        ports:
+            - "5000:5000"
+        depends_on:
+            - ourdb
+        environment:
+            MONGODB_HOSTNAME: ourdb
+    ourdb:
+        image: mongo:latest
