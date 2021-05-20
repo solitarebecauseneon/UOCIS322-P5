@@ -9,9 +9,15 @@ Store control times from Project 4 in a MongoDB database.
 
 You have a minimal example of `docker-compose` in `DockerMongo`, using which you can connect a Flask app to MongoDB (as demonstrated in class). Refer to the lecture slides for more details on MongoDB and `docker-compose`. Solved `acp_times.py` file will be made available on Canvas under Files after the project due date.
 
+## IMPORTANT NOTES
+
+**MAKE SURE TO USE THE SOLUTION `acp_times.py` from Canvas for this project!**
+
+**MAKE SURE TO KEEP YOUR FILES in `brevets`! REMOVE `DockerMongo` after you're done!**
+
 ## Getting started
 
-You will reuse *your* code from Project 4. Meaning you will get rid of `DockerMongo` (it's just an example, like `minijax` in Project 3), and use ideas from it to make some changes.
+You will reuse *your* code from Project 4 (and the solution `acp_times.py` file for consistency), meaning you will get rid of `DockerMongo` (it's just an example, like `minijax` in Project 3), and use ideas from it to make some changes.
 
 Recall that you created a list of open and close control times using AJAX. In this project, you will add the following:
 
