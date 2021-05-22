@@ -179,9 +179,9 @@
                      var control = document.getElementsByClassName("control");
                      for (i = 0; i < control.length; i++) {
                         var temp = [];
-                        temp.append(control[i].children[1].value);
-                        temp.append(control[i].children[3].value);
-                        temp.append(control[i].children[4].value);
+                        temp.push(control[i].children[1].value);
+                        temp.push(control[i].children[3].value);
+                        temp.push(control[i].children[4].value);
                         console.log(temp);
                      }
 
