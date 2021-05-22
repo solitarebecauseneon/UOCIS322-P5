@@ -42,7 +42,6 @@ def page_not_found(error):
 
 @app.route("/_insert_db")
 def insert():
-    pass
     return None
 
 
