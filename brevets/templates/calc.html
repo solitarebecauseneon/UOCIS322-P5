@@ -49,7 +49,7 @@
          {% endif %}
          {% endwith %}
          <!-- Design on bootstrap grid -->
-         <form role="form">
+         <form role="form" method="POST" action="/submit_times">
             <div class="row">
                <div class="col-md-4">
                   <label>Distance</label>
@@ -67,6 +67,10 @@
                   <input type="datetime-local" name="begin_date" id="begin_date" value="2021-01-01T00:00" />
                </div>
                <!-- columns 5 to 10 -->
+               <div class="col-md-4">
+                  <button id-="submit">Submit</button>
+                  <button id="display">Display</button>
+               </div>
             </div>
             <!-- row -->
             <br />  <!-- a little vertical space -->

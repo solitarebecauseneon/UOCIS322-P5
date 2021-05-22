@@ -36,6 +36,11 @@ def page_not_found(error):
     return flask.render_template('404.html'), 404
 
 
+@app.route("/submit_times", methods=['POST'])
+def insert():
+    request.form.get()  # USE FORM.GET, NOT ARGS.GET
+
+
 ###############
 #
 # AJAX request handlers
