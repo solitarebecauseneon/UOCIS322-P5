@@ -5,8 +5,8 @@ Replacement for RUSA ACP brevet time calculator
 """
 import os
 import flask
-from pymongo import MongoClient
 from flask import Flask, redirect, url_for, request, render_template
+from pymongo import MongoClient
 import arrow  # Replacement for datetime, based on moment.js
 import acp_times  # Brevet time calculations
 import config
