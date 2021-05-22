@@ -178,7 +178,7 @@
                      e.preventDefault();
                      var control = document.getElementsByClassName("control")[0];
                      console.log(control);
-                     var km = control.("input[name='km']").val();
+                     var km = control.find("input[name='km']").val();
                      console.log(km);
                      var open = control.find("input[name='open']");
                      console.log(open);
