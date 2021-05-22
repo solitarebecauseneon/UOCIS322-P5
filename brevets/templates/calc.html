@@ -123,9 +123,7 @@
               console.log(control);
               var km = control.find("input[name='km']").val();
               var open_time_field = control.find("input[name='open']");
-              console.log(open_time_field);
               var close_time_field = control.find("input[name='close']");
-              console.log(close_time_field);
               var distance = document.getElementById('brevet_dist_km').value;
               var begin_date = document.getElementById('begin_date').value;
 
@@ -178,14 +176,19 @@
                   {
                      e.preventDefault();
                      var i;
+                     var values = []
                      var control = document.getElementsByClassName("control");
-                     console.log(control[0]);
                      for (i = 0; i < control.length; i++) {
                         var temp = [];
                         temp.push($(control[i]).find("input[name='km']").val());
+                        if (temp[0] == "") {
+                           continue;
+                        }
                         temp.push($(control[i]).find("input[name='open']").val());
                         temp.push($(control[i]).find("input[name='close']").val());
                         console.log(temp);
+                        values.push(temp);
+                        console.log(values);
                      }
 
                   }
