@@ -175,15 +175,15 @@
                   function(e)
                   {
                      e.preventDefault();
+                     var i;
                      var control = document.getElementsByClassName("control");
-                     console.log(control);
-                     var km = control.find("input[name='km']").val();
-                     console.log(km);
-                     var open = control.find("input[name='open']");
-                     console.log(open);
-                     var close = control.find("input[name='close']");
-                     console.log(close);
-                     var info = [];
+                     for (i = 0; i < control.length; i++) {
+                        var temp = [];
+                        temp.append(control[i].children[1].value);
+                        temp.append(control[i].children[3].value);
+                        temp.append(control[i].children[4].value);
+                        console.log(temp);
+                     }
 
                   }
                );
