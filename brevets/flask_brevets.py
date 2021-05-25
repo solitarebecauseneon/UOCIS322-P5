@@ -6,7 +6,7 @@ Replacement for RUSA ACP brevet time calculator
 
 import os
 import flask
-from flask import request, render_template
+from flask import request
 import json
 import arrow  # Replacement for datetime, based on moment.js
 import acp_times  # Brevet time calculations
@@ -64,10 +64,12 @@ def insert():
     return flask.jsonify(result=result)
 
 
-@app.route('/display_route')
+@app.route('/_display_route')
 def display():
-    return render_template('acptimes.html',
-                           items=list(db.timestable.find()))
+    app.logger.debug("Got a JSON request")
+    result = db.timestable.find()
+    app.logger.debug("MangoDB documents: {}".format(result))
+    return flask.jsonify(result=result)
 
 
 ###############
