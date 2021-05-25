@@ -240,13 +240,14 @@
                             var km_field = specific.cells.item(1);
                             var open_field = specific.cells.item(3);
                             var close_field = specific.cells.item(4);
+                            console.log(close_field, open_field, km_field);
                             km_field.value = output[i].km;
                             open_field.value = (moment(output[i].open_time).format("YYYY-MM-DDTHH:mm"));
                             close_field.value = (moment(output[i].close_time).format("YYYY-MM-DDTHH:mm"));
                          }
                          console.log("Display successful!");
                          message = document.getElementById("message_output");
-                         message.innerHTML = "Submit successful!";
+                         message.innerHTML = "Display successful!";
                        }
                      ).fail(function(err){
                     // In case you get an error...
