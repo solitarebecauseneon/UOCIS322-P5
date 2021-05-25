@@ -45,7 +45,7 @@ def page_not_found(error):
 def insert():
     app.logger.debug("Got a JSON request")
     vals = request.form.get("vals")
-    app.logger.debug("vals={}".format(vals))
+    app.logger.debug("vals={}".format(vals[0]))
     app.logger.debug("request.form: {}".format(request.form))
     if vals is not None:
         vals = json.loads(vals)
