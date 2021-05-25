@@ -213,11 +213,12 @@
                  var i;
                  var control = document.getElementsByClassName("control");
                  for (i = 0; i < control.length; i++) {
-                    control[i].find("input[name='km']").val('');
-                    control[i].find("input[name='location']").val('');
-                    control[i].find("input[name='open']").val('');
-                    control[i].find("input[name='close']").val('');
-                    control[i].find("input[name='miles']").val('');
+                    var specific = control.item(i)
+                    specific.find("input[name='km']").val('');
+                    specific.find("input[name='location']").val('');
+                    specific.find("input[name='open']").val('');
+                    specific.find("input[name='close']").val('');
+                    specific.find("input[name='miles']").val('');
                  }
                }
                $('#display').click(
