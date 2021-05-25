@@ -70,7 +70,7 @@ def display():
     result = []
     temp = db.timestable.find()
     for i in temp:
-        app.logger.debug("MangoDB documents: {}".format(i))
+        del i['_id']
         result.append(i)
     app.logger.debug("MangoDB documents: {}".format(result))
     return flask.jsonify(result=result)
