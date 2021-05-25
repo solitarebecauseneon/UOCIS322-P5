@@ -44,13 +44,11 @@ def page_not_found(error):
 @app.route("/_submit_route", methods=['POST'])
 def insert():
     app.logger.debug("Got a JSON request")
-    vals = request.form
+    vals = request.form.get("vals")
     app.logger.debug("vals={}".format(vals))
     app.logger.debug("request.form: {}".format(request.form))
     if vals is not None:
         vals = json.loads(vals)
-    else:
-        return "Failure"
     for i in vals:
         control_point = {
             'km': vals[i][0],
