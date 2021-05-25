@@ -67,7 +67,11 @@ def insert():
 @app.route('/_display_route')
 def display():
     app.logger.debug("Got a JSON request")
-    result = db.timestable.find()
+    result = []
+    temp = db.timestable.find()
+    for i in temp:
+        app.logger.debug("MangoDB documents: {}".format(i))
+        result.append(i)
     app.logger.debug("MangoDB documents: {}".format(result))
     return flask.jsonify(result=result)
 
