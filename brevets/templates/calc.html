@@ -193,7 +193,7 @@
                      $.post(SUBMIT_BUTTON_URL, {vals = values}, function(out){
                         console.log("Submit succeeded.");
                         message = document.getElementById("message_output");
-                        message.innerHTML = "Submit successful!"
+                        message.innerHTML = "Submit successful!";
                         }, "json"
                      ).fail(function(err){
                         console.log("Data storage failed!");
