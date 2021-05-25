@@ -189,9 +189,7 @@
                         temp.push($(control[i]).find("input[name='open']").val());
                         temp.push($(control[i]).find("input[name='close']").val());
                         values.push(temp);
-                        console.log(values);
                      }
-                     console.log(values);
                      $.post(SUBMIT_BUTTON_URL, {vals: values}, function(out){
                         console.log(out);
                         console.log("Submit successful!");
