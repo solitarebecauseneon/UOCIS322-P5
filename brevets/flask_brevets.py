@@ -6,7 +6,7 @@ Replacement for RUSA ACP brevet time calculator
 
 import os
 import flask
-from flask import request
+from flask import request, render_template
 import json
 import arrow  # Replacement for datetime, based on moment.js
 import acp_times  # Brevet time calculations
@@ -59,6 +59,12 @@ def insert():
         db.timestable.insert_one(control_point)
     result = "Success!"
     return flask.jsonify(result=result)
+
+
+@app.route('/_display_route')
+def index():
+    return render_template('acptimes.html',
+                           items=list(db.timestable.find()))
 
 
 ###############

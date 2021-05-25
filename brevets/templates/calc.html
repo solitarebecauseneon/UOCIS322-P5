@@ -50,7 +50,7 @@
          {% endwith %}
          <!-- Design on bootstrap grid -->
          <form role="form">
-            <div id="message_output" class="row">
+            <div class="row">
                <div class="col-md-4">
                   <label>Distance</label>
                   <select name="distance" id="brevet_dist_km">
@@ -70,6 +70,7 @@
                <div class="col-md-4">
                   <button id="submit">Submit</button>
                   <button id="display">Display</button>
+                  <p id="message_output"> </p>
                </div>
             </div>
             <!-- row -->
@@ -190,6 +191,10 @@
                         temp.push($(control[i]).find("input[name='close']").val());
                         values.push(temp);
                      }
+                     if (values.length == 0) {
+                        console.log("No values submitted into table!");
+                        return;
+                     }
                      values = JSON.stringify(values);
                      $.post(SUBMIT_BUTTON_URL, {vals: values}, function(out){
                         console.log(out);
@@ -207,6 +212,7 @@
                   function(e)
                   {
                      e.preventDefault();
+                     $.getJSON(DISPLAY_BUTTON_URL)
                   }
                );
                });

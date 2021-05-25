@@ -4,24 +4,54 @@
     </head>
     <body>
         <div>
-            <form method="POST" action="/insert/">
-                <div>
-                  <input name="title" value="Some title" />
-                </div>
-                <div>
-                  <textarea name="body" rows="8" cols="80">Some text!</textarea>
-                </div>
-                <div>
-                    <button>Insert!</button>
-                </div>
-            </form>
+            <form role="form">
+            <div id="message_output" class="row">
+               <div class="col-md-4">
+               </div>
+               <!-- columns 1 to 4  -->
+               <!-- columns 5 to 10 -->
+               <div class="col-md-4">
+               </div>
+            </div>
+            <!-- row -->
+            <br />  <!-- a little vertical space -->
+            <!-- Although we do not use tables for general page layout, they are
+               appropriate for something that really is a table, like this
+               one.  We allocate it the full 12 columns of the bootstrap grid.
+               -->
+            <div class="row">
+               <div class="col-md-12">
+                  <table class="control_time_table">
+                     <tr>
+                        <th> Km </th>
+                        <th>Open</th>
+                        <th>Close</th>
+                     </tr>
+                     {% for row in range(20) %}
+                     <tr class="control">
+                        <!-- Dist (km) -->
+                        <td><input name="km" type="number" step="0.00001"
+                           min="0" max="1200" /> </td>
+                        <!-- Location (optional) -->
+                        <!-- Open time (read only, set by JavaScript function -->
+                        <td><input name="open" type="datetime-local" readonly value="" /></td>
+                        <!-- Close time (read only, set by JavaScript function -->
+                        <td><input name="close" type="datetime-local" readonly value="" /></td>
+                        <!-- Notes (error messages for this row) -->
+                     </tr>
+                     {% endfor %}
+                  </table>
+               </div>
+               <!-- col -->
+            </div>
+            <!-- row -->
+         </form>
         </div>
         <div>
             {% for article in items %}
             <div>
                 <h1>{{ article.title }}</h1>
                 <p>{{ article.body }}</p>
-                <hl />
             </div>
             {% endfor %}
         </div>
