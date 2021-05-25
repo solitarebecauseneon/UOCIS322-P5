@@ -40,6 +40,19 @@ def page_not_found(error):
     return flask.render_template('404.html'), 404
 
 
+@app.route("/_submit_route", methods=['POST'])
+def insert():
+    vals = request.form.get("vals")
+    for i in vals:
+        control_point = {
+            'km': vals[i][0],
+            'open_time': vals[i][1],
+            'close_time': vals[i][2]
+        }
+        db.timestable.insert_one(control_point)
+    return 0
+
+
 ###############
 #
 # AJAX request handlers

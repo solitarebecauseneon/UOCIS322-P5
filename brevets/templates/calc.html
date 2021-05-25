@@ -50,7 +50,7 @@
          {% endwith %}
          <!-- Design on bootstrap grid -->
          <form role="form">
-            <div class="row">
+            <div id="message_output" class="row">
                <div class="col-md-4">
                   <label>Distance</label>
                   <select name="distance" id="brevet_dist_km">
@@ -118,6 +118,8 @@
          <script type="text/javascript">
             var SCRIPT_ROOT = {{ request.script_root|tojson|safe }} ;
             var TIME_CALC_URL = SCRIPT_ROOT + "/_calc_times";
+            var SUBMIT_BUTTON_URL = SCRIPT_ROOT + "/_submit_route";
+            var DISPLAY_BUTTON_URL = SCRIPT_ROOT + "/_display_route";
 
             function calc_times(control) {
               console.log(control);
@@ -186,11 +188,17 @@
                         }
                         temp.push($(control[i]).find("input[name='open']").val());
                         temp.push($(control[i]).find("input[name='close']").val());
-                        console.log(temp);
                         values.push(temp);
-                        console.log(values);
                      }
-
+                     $.post(SUBMIT_BUTTON_URL, {vals = values}, function(out){
+                        console.log("Submit succeeded.");
+                        message = document.getElementById("message_output");
+                        message.innerHTML = "Submit successful!"
+                        }, "json"
+                     ).fail(function(err){
+                        console.log("Data storage failed!");
+                        console.log(err);
+                     });
                   }
                );
 
@@ -198,6 +206,7 @@
                   function(e)
                   {
                      e.preventDefault();
+                     $.get(DISPLAY_BUTTON_URL,
                   }
                );
                });
