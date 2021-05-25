@@ -51,9 +51,9 @@ def insert():
         vals = json.loads(vals)
     for i in vals:
         control_point = {
-            'km': vals[i][0],
-            'open_time': vals[i][1],
-            'close_time': vals[i][2]
+            'km': [i][0],
+            'open_time': [i][1],
+            'close_time': [i][2]
         }
         db.timestable.insert_one(control_point)
     return vals
