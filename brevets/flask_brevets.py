@@ -7,6 +7,7 @@ Replacement for RUSA ACP brevet time calculator
 import os
 import flask
 from flask import request
+import json
 import arrow  # Replacement for datetime, based on moment.js
 import acp_times  # Brevet time calculations
 import config
@@ -43,7 +44,7 @@ def page_not_found(error):
 @app.route("/_submit_route", methods=['POST'])
 def insert():
     vals = request.form.get('vals')
-    print(vals)
+    vals = json.loads(vals)
     for i in vals:
         control_point = {
             'km': vals[i][0],
