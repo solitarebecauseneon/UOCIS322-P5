@@ -49,7 +49,8 @@ def insert():
     app.logger.debug("request.form: {}".format(request.form))
     if vals is not None:
         vals = json.loads(vals)
-    app.logger.debug("vals={}".format(vals))
+    app.logger.debug("vals={}".format(vals[0]))
+    app.logger.debug("vals={}".format(vals[0][0]))
     for i in vals:
         control_point = {
             'km': [i][0],
