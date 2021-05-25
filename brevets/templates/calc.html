@@ -216,9 +216,9 @@
                      e.preventDefault();
                      $.getJSON(DISPLAY_BUTTON_URL).done(
                      function(data) {
-                         //var times = data.result;
-                         //console.log("Got a response: ");
-                         //console.log("Response.open = " + times.open);
+                         var times = data.result;
+                         console.log("Got a response: ");
+                         console.log("Response.open = " + times);
                          // This part will automatically fill the open and close slots,
                          // so don't worry about those.
                          //open_time_field.val(moment(times.open).format("YYYY-MM-DDTHH:mm"));
