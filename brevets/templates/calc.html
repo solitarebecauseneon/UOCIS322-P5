@@ -190,7 +190,6 @@
                         temp.push($(control[i]).find("input[name='close']").val());
                         values.push(temp);
                         console.log(values);
-                        JSON.stringify(values);
                      }
                      console.log(values);
                      $.post(SUBMIT_BUTTON_URL, {vals: values}, function(out){
@@ -198,10 +197,9 @@
                         console.log("Submit successful!");
                         message = document.getElementById("message_output");
                         message.innerHTML = "Submit successful!";
-                        }, "json"
-                     ).fail(function(err){
-                        console.log("Data storage failed!");
-                        console.log(err);
+                        }, "json").fail(function(err){
+                           console.log("Data storage failed!");
+                           console.log(err);
                      });
                   }
                );
