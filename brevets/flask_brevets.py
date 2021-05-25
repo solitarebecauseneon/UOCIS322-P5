@@ -44,6 +44,9 @@ def page_not_found(error):
 @app.route("/_submit_route", methods=['POST'])
 def insert():
     app.logger.debug("Got a JSON request")
+    mycol = db.km
+    mycol.delete_many({})
+    app.logger.debug("Current database emptied")
     vals = request.form.get("vals")
     app.logger.debug("request.form: {}".format(request.form))
     if vals is not None:
