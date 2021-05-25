@@ -57,7 +57,8 @@ def insert():
             'close_time': i[2]
         }
         db.timestable.insert_one(control_point)
-    return "Success!"
+    result = "Success!"
+    return flask.jsonify(result=result)
 
 
 ###############
