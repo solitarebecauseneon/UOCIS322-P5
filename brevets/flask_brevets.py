@@ -45,17 +45,16 @@ def page_not_found(error):
 def insert():
     app.logger.debug("Got a JSON request")
     vals = request.form.get("vals")
-    app.logger.debug("vals={}".format(vals[0]))
     app.logger.debug("request.form: {}".format(request.form))
     if vals is not None:
         vals = json.loads(vals)
-    app.logger.debug("vals={}".format(vals[0]))
-    app.logger.debug("vals={}".format(vals[0][0]))
+    app.logger.debug("vals={}".format(vals))
     for i in vals:
+        app.logger.debug("vals={}".format(i))
         control_point = {
-            'km': [i][0],
-            'open_time': [i][1],
-            'close_time': [i][2]
+            'km': i[0],
+            'open_time': i[1],
+            'close_time': i[2]
         }
         db.timestable.insert_one(control_point)
     return vals
