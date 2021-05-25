@@ -62,7 +62,7 @@ def insert():
 
 
 @app.route('/_display_route')
-def index():
+def display():
     return render_template('acptimes.html',
                            items=list(db.timestable.find()))
 
