@@ -213,12 +213,12 @@
                  var i;
                  var control = document.getElementsByClassName("control");
                  for (i = 0; i < control.length; i++) {
-                    var specific = control.item(i);
-                    specific.cells.item(0).value = '';
-                    specific.cells.item(1).value = '';
-                    specific.cells.item(2).value = '';
-                    specific.cells.item(3).value = '';
-                    specific.cells.item(4).value = '';
+                    var specific = $control.item(i);
+                    specific.find("input[name='miles']").val('');
+                    specific.find("input[name='km']").val('');
+                    specific.find("input[name='open']").val('');
+                    specific.find("input[name='close']").val('');
+                    specific.find("input[name='location']").val('');
                  }
                }
                $('#display').click(
@@ -232,18 +232,16 @@
                          console.log("Got a response: ");
                          console.log("Response.open = " + output);
                          var control = document.getElementsByClassName("control");
-                         console.log(control);
-                         console.log(control.item(i));
                          empty_table();
                          for (i = 0; i < output.length; i++) {
-                            var specific = control.item(i);
-                            var km_field = specific.cells.item(1);
-                            var open_field = specific.cells.item(3);
-                            var close_field = specific.cells.item(4);
+                            var specific = $control.item(i);
+                            var km_field = specific.find("input[name='km']");
+                            var open_field = specific.find("input[name='open']");
+                            var close_field = specific.find("input[name='close']");
                             console.log(close_field, open_field, km_field);
-                            km_field.value = output[i].km;
-                            open_field.value = (moment(output[i].open_time).format("YYYY-MM-DDTHH:mm"));
-                            close_field.value = (moment(output[i].close_time).format("YYYY-MM-DDTHH:mm"));
+                            km_field.val(output[i].km);
+                            open_field.val((moment(output[i].open_time).format("YYYY-MM-DDTHH:mm")));
+                            close_field.val((moment(output[i].close_time).format("YYYY-MM-DDTHH:mm")));
                          }
                          console.log("Display successful!");
                          message = document.getElementById("message_output");
