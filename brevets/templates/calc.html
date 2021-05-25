@@ -237,8 +237,8 @@
                             var open_field = control[i].find("input[name='open']");
                             var close_field = control[i].find("input[name='close']");
                             km_field.val(result[i].km);
-                            open_field.val(moment(result[i].open_time)).format("YYYY-MM-DDTHH:mm"));
-                            close_field.val(moment(result[i].close_time)).format("YYYY-MM-DDTHH:mm"));
+                            open_field.val(moment(result[i].open_time).format("YYYY-MM-DDTHH:mm"));
+                            close_field.val(moment(result[i].close_time).format("YYYY-MM-DDTHH:mm"));
                          }
                        }
                      ).fail(function(err){
