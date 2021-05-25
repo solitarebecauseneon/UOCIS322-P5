@@ -230,8 +230,10 @@
                          var i;
                          console.log("Got a response: ");
                          console.log("Response.open = " + output);
-                         empty_table();
                          var control = document.getElementsByClassName("control");
+                         console.log(control);
+                         console.log(control[i]);
+                         empty_table();
                          for (i = 0; i < output.length; i++) {
                             var km_field = control[i].find("input[name='km']");
                             var open_field = control[i].find("input[name='open']");
