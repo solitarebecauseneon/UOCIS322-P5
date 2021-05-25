@@ -4,7 +4,7 @@ Nose tests for acp_times.py, which calculates for flask_brevets.py
 Uses fringe cases for ACP brevet times and cases
 """
 
-from acp_times import open_time, close_time
+from brevets.acp_times import open_time, close_time
 
 import nose  # Testing framework
 import arrow
