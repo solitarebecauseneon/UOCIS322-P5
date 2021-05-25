@@ -190,8 +190,9 @@
                         temp.push($(control[i]).find("input[name='close']").val());
                         values.push(temp);
                      }
-                     $.post(SUBMIT_BUTTON_URL, {vals: values}, function(out){
-                        console.log("Submit succeeded.");
+                     $.post(SUBMIT_BUTTON_URL, {vals: values}).done(function(out){
+                        console.log(out);
+                        console.log("Submit successful!");
                         message = document.getElementById("message_output");
                         message.innerHTML = "Submit successful!";
                         }, "json"
