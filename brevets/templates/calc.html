@@ -192,6 +192,8 @@
                         values.push(temp);
                      }
                      if (values.length == 0) {
+                        message = document.getElementById("message_output");
+                        message.innerHTML = "Table cannot be empty!";
                         console.log("No values submitted into table!");
                         return;
                      }
@@ -212,7 +214,7 @@
                   function(e)
                   {
                      e.preventDefault();
-                     $.getJSON(DISPLAY_BUTTON_URL)
+                     $.getJSON(DISPLAY_BUTTON_URL);
                   }
                );
                });
