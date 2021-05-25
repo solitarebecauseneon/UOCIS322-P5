@@ -22,13 +22,13 @@ def insert_retrieval():
     control_point = {
         'km': 100,
         'open_time': 200,
-        'close_time': 200
+        'close_time': 250
     }
     db.test.insert_one(control_point)
     print(db.test.find())
-    assert db.test.find() == control_point
-    mycol = db.km
-    mycol.delete_many({})
+    assert db.test.find()[0].km == 100
+    assert db.test.find()[0].open_time == 200
+    assert db.test.find()[0].close_time == 250
     _clean()
 
 
@@ -44,10 +44,8 @@ def clean_up():
             'close_time': (i + 4) * 20
         }
         db.test.insert_one(control_point)
-    mycol = db.km
-    mycol.delete_many({})
-    print(db.test.find())
-    assert db.test.find() is None
+    db.test.delete_many({})
+    assert len(db.test.find()) == 0
     _clean()
 
 
@@ -63,6 +61,5 @@ def mass_retrieval():
             'close_time': (i + 3) * 20
         }
         db.test.insert_one(control_point)
-    print(db.test.find())
-    assert db.test.find()
+    assert len(db.test.find()) == 20
     _clean()
